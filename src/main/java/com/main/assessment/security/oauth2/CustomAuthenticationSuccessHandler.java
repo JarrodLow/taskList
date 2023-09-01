@@ -1,8 +1,9 @@
 package com.main.assessment.security.oauth2;
 
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.security.JwtTokenProvider;
-import com.mcorvera.socialapp.util.CookieAdminI;
+
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.security.JwtTokenProvider;
+import com.main.assessment.util.CookieAdminI;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +20,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mcorvera.socialapp.security.oauth2.CustomAuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
+import static com.main.assessment.security.oauth2.CustomAuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
 
 @Component
 public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -49,7 +50,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 				.map(cookie->cookie.getValue()).orElse("/");
 		
 		//Generate the json web token to user:
-		String jwtToken=jwtTokenProvider.generateJwtToken((AuthenticatedUser) authentication.getPrincipal());	
+		String jwtToken=jwtTokenProvider.generateJwtToken((AuthenticatedUser) authentication.getPrincipal());
 		
 		URIBuilder url;
 		boolean isAuthorizedRedirectUri;

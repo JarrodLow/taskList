@@ -1,9 +1,10 @@
 package com.main.assessment.model.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mcorvera.socialapp.model.ProviderNameEnum;
-import com.mcorvera.socialapp.model.User;
-import com.mcorvera.socialapp.model.audit.Audit;
+
+import com.main.assessment.model.ProviderNameEnum;
+import com.main.assessment.model.User;
+import com.main.assessment.model.audit.Audit;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

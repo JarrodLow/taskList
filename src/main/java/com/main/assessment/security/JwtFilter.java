@@ -1,6 +1,6 @@
 package com.main.assessment.security;
 
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
+import com.main.assessment.model.security.AuthenticatedUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class JwtFilter implements Filter {
 					}else {				
 						jwtToken= bearerToken.substring(jwtType.length()+1, bearerToken.length()-1);
 						if (jwtTokenProvider.validateJwtToken(jwtToken)){
-							AuthenticatedUser authenticatedUser = jwtTokenProvider.getUserFromJWT(jwtToken);  
+							AuthenticatedUser authenticatedUser = jwtTokenProvider.getUserFromJWT(jwtToken);
 							UsernamePasswordAuthenticationToken authentication= 
 							new UsernamePasswordAuthenticationToken(authenticatedUser, null, authenticatedUser.getAuthorities());
 							SecurityContextHolder.getContext().setAuthentication(authentication);

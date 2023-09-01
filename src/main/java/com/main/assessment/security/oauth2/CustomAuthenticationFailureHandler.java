@@ -1,6 +1,7 @@
 package com.main.assessment.security.oauth2;
 
-import com.mcorvera.socialapp.util.CookieAdminI;
+
+import com.main.assessment.util.CookieAdminI;
 import org.apache.http.client.utils.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static com.mcorvera.socialapp.security.oauth2.CustomAuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
 
-;
+;import static com.main.assessment.security.oauth2.CustomAuthorizationRequestRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
 
 
 @Component

@@ -1,6 +1,7 @@
 package com.main.assessment.model;
 
-import com.mcorvera.socialapp.model.audit.Audit;
+
+import com.main.assessment.model.audit.Audit;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

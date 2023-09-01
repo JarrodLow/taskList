@@ -1,13 +1,14 @@
 package com.main.assessment.security.oauth2;
 
 
-import com.mcorvera.socialapp.model.ProviderNameEnum;
-import com.mcorvera.socialapp.model.Role;
-import com.mcorvera.socialapp.model.RoleName;
-import com.mcorvera.socialapp.model.User;
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.repository.RoleRepository;
-import com.mcorvera.socialapp.repository.UserRepository;
+
+import com.main.assessment.model.ProviderNameEnum;
+import com.main.assessment.model.Role;
+import com.main.assessment.model.RoleName;
+import com.main.assessment.model.User;
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.repository.RoleRepository;
+import com.main.assessment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -104,7 +105,8 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
 		}
         user.setEmail((String) attributes.get("email"));
         user.setImageUrl(this.getPictureFromAttributes(attributes));
-        Role role=roleRepository.findByName(RoleName.ROL_USER);
+
+		Role role=roleRepository.findByName(RoleName.ROL_USER);
 		List<Role> roles = new ArrayList<>();
 		roles.add(role);
 		user.setRoles(roles);

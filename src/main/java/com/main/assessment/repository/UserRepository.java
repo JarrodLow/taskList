@@ -1,6 +1,6 @@
 package com.main.assessment.repository;
 
-import com.mcorvera.socialapp.model.User;
+import com.main.assessment.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

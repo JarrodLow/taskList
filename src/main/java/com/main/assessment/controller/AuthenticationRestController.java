@@ -1,9 +1,9 @@
 package com.main.assessment.controller;
 
-import com.mcorvera.socialapp.beans.AuthenticationResponse;
-import com.mcorvera.socialapp.beans.LoginRequest;
-import com.mcorvera.socialapp.beans.SignUpRequest;
-import com.mcorvera.socialapp.service.AuthenticationServiceI;
+import com.main.assessment.beans.AuthenticationResponse;
+import com.main.assessment.beans.LoginRequest;
+import com.main.assessment.beans.SignUpRequest;
+import com.main.assessment.service.AuthenticationServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.AuthenticationException;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 public class AuthenticationRestController {
 	
 	@Autowired
-	private AuthenticationServiceI authenticationServicei; 
+	private AuthenticationServiceI authenticationServicei;
 	
 	
 	@PostMapping("/login")

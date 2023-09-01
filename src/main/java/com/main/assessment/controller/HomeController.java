@@ -1,8 +1,9 @@
 package com.main.assessment.controller;
 
-import com.mcorvera.socialapp.model.User;
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.service.HomeServiceI;
+
+import com.main.assessment.model.User;
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.service.HomeServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,15 +1,16 @@
 package com.main.assessment.service;
 
-import com.mcorvera.socialapp.beans.AuthenticationResponse;
-import com.mcorvera.socialapp.beans.SignUpRequest;
-import com.mcorvera.socialapp.model.ProviderNameEnum;
-import com.mcorvera.socialapp.model.Role;
-import com.mcorvera.socialapp.model.RoleName;
-import com.mcorvera.socialapp.model.User;
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.repository.RoleRepository;
-import com.mcorvera.socialapp.repository.UserRepository;
-import com.mcorvera.socialapp.security.JwtTokenProvider;
+
+import com.main.assessment.beans.AuthenticationResponse;
+import com.main.assessment.beans.SignUpRequest;
+import com.main.assessment.model.ProviderNameEnum;
+import com.main.assessment.model.Role;
+import com.main.assessment.model.RoleName;
+import com.main.assessment.model.User;
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.repository.RoleRepository;
+import com.main.assessment.repository.UserRepository;
+import com.main.assessment.security.JwtTokenProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@ public class AuthenticationService implements AuthenticationServiceI {
 			Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(usernameOrEmail.toLowerCase(), password));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			//Generate the json web token to user:
-			String jwtToken=jwtTokenProvider.generateJwtToken((AuthenticatedUser) authentication.getPrincipal());	
+			String jwtToken=jwtTokenProvider.generateJwtToken((AuthenticatedUser) authentication.getPrincipal());
 			authenticationResponse.setToken(jwtToken);
 			authenticationResponse.setTokenType(jwtType);
 			authenticationResponse.setAuthenticated(true);

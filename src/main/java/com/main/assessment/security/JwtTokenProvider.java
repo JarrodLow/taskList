@@ -1,7 +1,8 @@
 package com.main.assessment.security;
 
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.service.CustomUserDetailsService;
+
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.service.CustomUserDetailsService;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

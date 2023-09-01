@@ -1,8 +1,9 @@
 package com.main.assessment.service;
 
-import com.mcorvera.socialapp.beans.AuthenticationResponse;
-import com.mcorvera.socialapp.beans.SignUpRequest;
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
+
+import com.main.assessment.beans.AuthenticationResponse;
+import com.main.assessment.beans.SignUpRequest;
+import com.main.assessment.model.security.AuthenticatedUser;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.AuthenticationException;
 

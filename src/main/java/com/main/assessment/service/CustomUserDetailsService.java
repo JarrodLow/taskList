@@ -1,9 +1,10 @@
 package com.main.assessment.service;
 
 
-import com.mcorvera.socialapp.model.User;
-import com.mcorvera.socialapp.model.security.AuthenticatedUser;
-import com.mcorvera.socialapp.repository.UserRepository;
+
+import com.main.assessment.model.User;
+import com.main.assessment.model.security.AuthenticatedUser;
+import com.main.assessment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

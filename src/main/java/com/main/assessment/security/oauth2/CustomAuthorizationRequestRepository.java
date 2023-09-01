@@ -1,6 +1,6 @@
 package com.main.assessment.security.oauth2;
 
-import com.mcorvera.socialapp.util.CookieAdminI;
+import com.main.assessment.util.CookieAdminI;
 import com.nimbusds.oauth2.sdk.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;

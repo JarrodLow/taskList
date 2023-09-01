@@ -1,7 +1,8 @@
 package com.main.assessment.repository;
 
-import com.mcorvera.socialapp.model.Role;
-import com.mcorvera.socialapp.model.RoleName;
+
+import com.main.assessment.model.Role;
+import com.main.assessment.model.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
