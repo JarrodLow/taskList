@@ -3,8 +3,6 @@ package com.main.assessment.security.oauth2;
 
 
 import com.main.assessment.model.ProviderNameEnum;
-import com.main.assessment.model.Role;
-import com.main.assessment.model.RoleName;
 import com.main.assessment.model.User;
 import com.main.assessment.model.security.AuthenticatedUser;
 import com.main.assessment.repository.RoleRepository;
@@ -53,7 +51,7 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
 			user = createNewUser(oAuth2User, userRequest, attributes);
 		}
 		
-	
+		//to be updated
 		return AuthenticatedUser.getUserAuthenticated(user,attributes);
 	}
 	
@@ -106,10 +104,7 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
         user.setEmail((String) attributes.get("email"));
         user.setImageUrl(this.getPictureFromAttributes(attributes));
 
-		Role role=roleRepository.findByName(RoleName.ROL_USER);
-		List<Role> roles = new ArrayList<>();
-		roles.add(role);
-		user.setRoles(roles);
+
         return userRepository.save(user);
 	}
 	

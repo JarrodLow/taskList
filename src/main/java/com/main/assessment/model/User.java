@@ -54,13 +54,7 @@ public class User extends BaseEntity {
 
 	@Column(nullable = false, name="isenabled")
 	private Boolean isenabled=true;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles",
-				joinColumns = @JoinColumn(name="user_id"),
-				inverseJoinColumns = @JoinColumn(name="role_id"))
-	private List<Role> roles =new ArrayList<>();
-	
+
 	//Attributes for Social Provider
 	@Column(length=100)
 	private String providerId;

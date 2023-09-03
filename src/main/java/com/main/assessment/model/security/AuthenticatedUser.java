@@ -49,9 +49,7 @@ public class AuthenticatedUser extends BaseEntity implements UserDetails, OAuth2
 	private String password;
 	
 	private String phone;
-	
-	private Collection<? extends GrantedAuthority> authorities;
-	
+
 	private boolean isAccountNonExpired;
 	
 	private boolean isAccountNonLocked;
@@ -68,6 +66,16 @@ public class AuthenticatedUser extends BaseEntity implements UserDetails, OAuth2
 	
 	private Map<String, Object> attributes;
 
+	public static AuthenticatedUser getUserAuthenticated(User user, Map<String, Object> attributes) {
 
+
+		return new AuthenticatedUser(user.getId(), user.getEmail(), user.getName(), user.getUsername(), user.getLastname(),
+				user.getPassword(), user.getPhone(),
+				user.getIsaccountnonexpired(), user.getIsaccountnonlocked(), user.getIscredentialsnonexpired(),
+				user.getIsenabled(),
+				user.getCreatedTime(), user.getCreatedBy(), user.getUpdatedBy(), user.getUpdatedTime(),
+				user.getProviderId(),  user.getProvider(), user.getImageUrl(),  attributes
+		);
+	}
 
 }

@@ -4,11 +4,8 @@ package com.main.assessment.service;
 import com.main.assessment.beans.AuthenticationResponse;
 import com.main.assessment.beans.SignUpRequest;
 import com.main.assessment.model.ProviderNameEnum;
-import com.main.assessment.model.Role;
-import com.main.assessment.model.RoleName;
 import com.main.assessment.model.User;
 import com.main.assessment.model.security.AuthenticatedUser;
-import com.main.assessment.repository.RoleRepository;
 import com.main.assessment.repository.UserRepository;
 import com.main.assessment.security.JwtTokenProvider;
 import org.slf4j.Logger;
@@ -45,8 +42,7 @@ public class AuthenticationService implements AuthenticationServiceI {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private RoleRepository roleRepository;
+
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -97,17 +93,16 @@ public class AuthenticationService implements AuthenticationServiceI {
 					signup.setUsername((signup.getName().trim()+"."+signup.getLastname().trim()+String.valueOf(Math.random())).toLowerCase());
 				}
 			}
-			
-			Role role=roleRepository.findByName(RoleName.ROL_USER);
-			if(role==null) {
-				authenticationResponse.setCreated(false);
-				authenticationResponse.setError("the rol ROL_USER is not registered");
-				return authenticationResponse;
-			}
-			List<Role> roles = new ArrayList<>();
-			roles.add(role);
-			
-			User user =new User("#", ProviderNameEnum.local ,signup.getEmail(), signup.getUsername(), signup.getName(), signup.getLastname(), bcrypt.encode(signup.getPassword()), signup.getPhone(), roles);
+
+			User user =new User();
+			user.setProviderId("#");
+			user.setProvider(ProviderNameEnum.local);
+			user.setEmail(signup.getEmail());
+			user.setUsername(signup.getUsername());
+			user.setName(signup.getName());
+			user.setLastname(signup.getLastname());
+			user.setPassword(bcrypt.encode(signup.getPassword()));
+			user.setPhone(signup.getPhone());
 			userRepository.save(user);
 			
 			Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signup.getEmail(), signup.getPassword()));
