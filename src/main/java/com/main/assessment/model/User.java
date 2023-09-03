@@ -2,7 +2,10 @@ package com.main.assessment.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.main.assessment.model.audit.Audit;
+import com.main.assessment.entity.BaseEntity;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -10,15 +13,13 @@ import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
-@Table(name="users",uniqueConstraints= {
-								@UniqueConstraint(columnNames={"email"}),
-								@UniqueConstraint(columnNames={"username"})})
-public class User extends Audit<Long> {
-	
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private Long id;
+@Setter
+@Getter
+@Table(name="user")
+public class User extends BaseEntity {
+
 	@NotBlank
 	@Email
 	@Column(nullable = false, length = 100)
@@ -71,147 +72,6 @@ public class User extends Audit<Long> {
 	@Column(length=400)
 	private String imageUrl;
 	
-	public User() {
-		super();
-	}
-	
-
-	
-	public User( String providerId, ProviderNameEnum provider, @NotBlank @Email String email, @NotBlank String username, @NotBlank String name, @NotBlank String lastname, 
-			String password,
-			@NotBlank String phone,
-			List<Role> roles) {
-		super();
-		this.providerId=providerId;
-		this.provider=provider;
-		this.email = email;
-		this.username = username;
-		this.name = name;
-		this.lastname=lastname;
-		this.password = password;
-		this.phone=phone;
-		this.roles=roles;
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public List<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-	public Boolean getIsaccountnonexpired() {
-		return isaccountnonexpired;
-	}
-	public void setIsaccountnonexpired(Boolean isaccountnonexpired) {
-		this.isaccountnonexpired = isaccountnonexpired;
-	}
-	public Boolean getIsaccountnonlocked() {
-		return isaccountnonlocked;
-	}
-	public void setIsaccountnonlocked(Boolean isaccountnonlocked) {
-		this.isaccountnonlocked = isaccountnonlocked;
-	}
-	public Boolean getIscredentialsnonexpired() {
-		return iscredentialsnonexpired;
-	}
-	public void setIscredentialsnonexpired(Boolean iscredentialsnonexpired) {
-		this.iscredentialsnonexpired = iscredentialsnonexpired;
-	}
-	public Boolean getIsenabled() {
-		return isenabled;
-	}
-	public void setIsenabled(Boolean isenabled) {
-		this.isenabled = isenabled;
-	}
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	@Override
-	public void setCreatedBy(Long createdBy) {
-		// TODO Auto-generated method stub
-		if(createdBy==0)
-			createdBy=this.id;
-		super.setCreatedBy(createdBy);
-	}
-	@Override
-	public void setLastModifiedBy(Long lastModifiedBy) {
-		// TODO Auto-generated method stub
-		if(lastModifiedBy==0)
-			lastModifiedBy=this.id;
-		super.setLastModifiedBy(lastModifiedBy);
-	}
-
-	public String getProviderId() {
-		return providerId;
-	}
-
-	public void setProviderId(String providerId) {
-		this.providerId = providerId;
-	}
-
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-
-
-	public ProviderNameEnum getProvider() {
-		return provider;
-	}
-
-
-
-	public void setProvider(ProviderNameEnum provider) {
-		this.provider = provider;
-	}
 
 	
 }

@@ -1,43 +1,27 @@
 package com.main.assessment.model;
 
 
-import com.main.assessment.model.audit.Audit;
+import com.main.assessment.entity.BaseEntity;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+@Data
 @Entity
-@Table(name = "roles", uniqueConstraints= @UniqueConstraint(columnNames={"name"}))
-public class Role extends Audit<Long> {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+@Setter
+@Getter
+@Table(name = "roles")
+public class Role extends BaseEntity {
+
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private RoleName name;
 	@NotBlank
 	@Column(nullable = false)
 	private String description;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public RoleName getName() {
-		return name;
-	}
-	public void setName(RoleName name) {
-		this.name = name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
+
 
 }
